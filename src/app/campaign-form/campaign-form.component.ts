@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CampaignFormComponent implements OnInit {
   campaignForm: FormGroup = new FormGroup({});
   townOptions: string[] = ['Cracow', 'Warsaw', 'Poznan', 'Gdansk', 'Lodz'];
-  /*   newTown: string = ''; */
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,7 +27,7 @@ export class CampaignFormComponent implements OnInit {
       bidAmount: ['', [Validators.required, Validators.min(1500)]],
       campaignFund: ['', Validators.required],
       status: ['', Validators.required],
-      town: [''],
+      town: ['Cracow'],
       radius: ['', Validators.required],
     });
 
@@ -40,13 +39,6 @@ export class CampaignFormComponent implements OnInit {
         this.campaignForm.patchValue(campaign);
       }
     }
-  }
-
-  onTownChange() {
-    let selectedTown = this.campaignForm.get('town')?.value;
-    /*     if (selectedTown === 'other...') {
-      this.newTown = '';
-    } */
   }
 
   onSubmit() {

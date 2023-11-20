@@ -14,10 +14,11 @@
   </div>
   <div>
     <label> Keywords </label>
-    <input type="text" formControlName="tags" />
+    <input type="text" formControlName="keywords" />
     <span
       *ngIf="
-        campaignForm.get('tags')?.invalid && campaignForm.get('tags')?.touched
+        campaignForm.get('keywords')?.invalid &&
+        campaignForm.get('keywords')?.touched
       "
     >
       Keywords are required
@@ -69,18 +70,12 @@
   <div>
     <label> Town </label>
     <div class="town-selector">
-      <select formControlName="town" (change)="onTownChange()">
+      <select formControlName="town">
         <option *ngFor="let city of townOptions" [value]="city">
           {{ city }}
         </option>
-        <!--          if ([value] ==="other...") {
-          <input type="text" placeholder="Enter new town" [(ngModel)]="newTown" />
-         } -->
       </select>
-      <!--   <input type="text" placeholder="Enter new town" [(ngModel)]="newTown" /> -->
     </div>
-    <!-- 
-    <input type="text" formControlName="town" /> -->
   </div>
   <div>
     <label> Radius (km)</label>
