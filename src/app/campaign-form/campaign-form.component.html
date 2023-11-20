@@ -1,79 +1,98 @@
 <app-home></app-home>
 
-<form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
+<form class="campaign-form" [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
   <div>
     <label> Name of the Campaign </label>
     <input type="text" formControlName="name" />
-    <div
+    <span
       *ngIf="
         campaignForm.get('name')?.invalid && campaignForm.get('name')?.touched
       "
     >
       Name of the Campaign is required
-    </div>
+    </span>
   </div>
   <div>
-    <label> Key words </label>
+    <label> Keywords </label>
     <input type="text" formControlName="tags" />
-    <div
+    <span
       *ngIf="
         campaignForm.get('tags')?.invalid && campaignForm.get('tags')?.touched
       "
     >
-      Key-words are required
-    </div>
+      Keywords are required
+    </span>
   </div>
   <div>
     <label> Bid amount </label>
     <input type="number" formControlName="bidAmount" />
-    <div
+    <span
       *ngIf="
         campaignForm.get('bidAmount')?.invalid &&
         campaignForm.get('bidAmount')?.touched
       "
     >
       Min amount is 1500
-    </div>
+    </span>
   </div>
   <div>
     <label> Campaign fund </label>
     <input type="number" formControlName="campaignFund" />
-    <div
+    <span
       *ngIf="
         campaignForm.get('campaignFund')?.invalid &&
         campaignForm.get('campaignFund')?.touched
       "
     >
       Name of the Campaign is required
-    </div>
+    </span>
   </div>
   <div>
     <label> Status </label>
-    <input type="boolean" formControlName="status" />
-    <div
+    <div class="radio-buttons">
+      <label>
+        <input type="radio" formControlName="status" value="on" /> On
+      </label>
+      <label>
+        <input type="radio" formControlName="status" value="off" /> Off
+      </label>
+    </div>
+    <span
       *ngIf="
         campaignForm.get('status')?.invalid &&
         campaignForm.get('status')?.touched
       "
     >
       Status need to be on or off
-    </div>
+    </span>
   </div>
   <div>
     <label> Town </label>
-    <input type="text" formControlName="town" />
+    <div class="town-selector">
+      <select formControlName="town" (change)="onTownChange()">
+        <option *ngFor="let city of townOptions" [value]="city">
+          {{ city }}
+        </option>
+        <!--          if ([value] ==="other...") {
+          <input type="text" placeholder="Enter new town" [(ngModel)]="newTown" />
+         } -->
+      </select>
+      <!--   <input type="text" placeholder="Enter new town" [(ngModel)]="newTown" /> -->
+    </div>
+    <!-- 
+    <input type="text" formControlName="town" /> -->
   </div>
   <div>
-    <label> Radius</label>
+    <label> Radius (km)</label>
     <input type="number" formControlName="radius" />
-    <div
+    <span
       *ngIf="
         campaignForm.get('radius')?.invalid &&
         campaignForm.get('radius')?.touched
       "
     >
       Enter the number of kilometers
-    </div>
+    </span>
   </div>
 
   <button type="submit" [disabled]="campaignForm.invalid">Submit</button>

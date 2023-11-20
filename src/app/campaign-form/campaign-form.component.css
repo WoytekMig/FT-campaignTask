@@ -1,0 +1,95 @@
+form {
+    max-width: 600px;
+    margin: 10px auto;
+    font-size: larger;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+span {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.radio-buttons {
+    display: flex;
+    /*  align-items: center; */
+}
+
+.radio-buttons label {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+
+.radio-buttons input {
+    margin-bottom: 5px;
+}
+
+.campaign-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    color: #333;
+}
+
+.campaign-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    color: #333;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:active {
+    background-color: #4bb57c;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+button:hover:enabled {
+    background-color: #45a049;
+}
