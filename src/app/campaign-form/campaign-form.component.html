@@ -1,1 +1,32 @@
-<p>campaign-form works!</p>
+<form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label> Name of the Campaign </label>
+    <input type="text" formControlName="name" />
+  </div>
+  <div>
+    <label> Key words </label>
+    <input type="text" formControlName="tags" />
+  </div>
+  <div>
+    <label> Bid amount </label>
+    <input type="number" formControlName="bidAmount" />
+  </div>
+  <div>
+    <label> Campaign fund </label>
+    <input type="number" formControlName="campaignFund" />
+  </div>
+  <div>
+    <label> Status </label>
+    <input type="boolean" formControlName="status" />
+  </div>
+  <div>
+    <label> Town </label>
+    <input type="text" formControlName="town" />
+  </div>
+  <div>
+    <label> Radius</label>
+    <input type="number" formControlName="radius" />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
