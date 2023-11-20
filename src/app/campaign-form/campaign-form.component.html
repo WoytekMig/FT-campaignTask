@@ -28,5 +28,5 @@
     <input type="number" formControlName="radius" />
   </div>
 
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="campaignForm.invalid">Submit</button>
 </form>
