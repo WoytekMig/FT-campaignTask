@@ -2,22 +2,60 @@
   <div>
     <label> Name of the Campaign </label>
     <input type="text" formControlName="name" />
+    <div
+      *ngIf="
+        campaignForm.get('name')?.invalid && campaignForm.get('name')?.touched
+      "
+    >
+      Name of the Campaign is required
+    </div>
   </div>
   <div>
     <label> Key words </label>
     <input type="text" formControlName="tags" />
+    <div
+      *ngIf="
+        campaignForm.get('tags')?.invalid && campaignForm.get('tags')?.touched
+      "
+    >
+      Key-words are required
+    </div>
   </div>
   <div>
     <label> Bid amount </label>
     <input type="number" formControlName="bidAmount" />
+    <div
+      *ngIf="
+        campaignForm.get('bidAmount')?.invalid &&
+        campaignForm.get('bidAmount')?.touched
+      "
+    >
+      You need to write bid amount
+    </div>
   </div>
   <div>
     <label> Campaign fund </label>
     <input type="number" formControlName="campaignFund" />
+    <div
+      *ngIf="
+        campaignForm.get('campaignFund')?.invalid &&
+        campaignForm.get('campaignFund')?.touched
+      "
+    >
+      Name of the Campaign is required
+    </div>
   </div>
   <div>
     <label> Status </label>
     <input type="boolean" formControlName="status" />
+    <div
+      *ngIf="
+        campaignForm.get('status')?.invalid &&
+        campaignForm.get('status')?.touched
+      "
+    >
+      Status need to be on or off
+    </div>
   </div>
   <div>
     <label> Town </label>
@@ -26,6 +64,14 @@
   <div>
     <label> Radius</label>
     <input type="number" formControlName="radius" />
+    <div
+      *ngIf="
+        campaignForm.get('radius')?.invalid &&
+        campaignForm.get('radius')?.touched
+      "
+    >
+      Enter the number of kilometers
+    </div>
   </div>
 
   <button type="submit" [disabled]="campaignForm.invalid">Submit</button>
