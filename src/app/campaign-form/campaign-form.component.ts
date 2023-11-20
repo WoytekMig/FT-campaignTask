@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CampaignFormComponent implements OnInit {
   campaignForm: FormGroup = new FormGroup({});
+  townOptions: string[] = ['Cracow', 'Warsaw', 'Poznan', 'Gdansk', 'Lodz'];
+  /*   newTown: string = ''; */
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,15 +24,11 @@ export class CampaignFormComponent implements OnInit {
   ngOnInit(): void {
     this.campaignForm = this.formBuilder.group({
       name: ['', Validators.required],
-      tags: ['', Validators.required],
-      bidAmount: [
-        '',
-        Validators.required,
-      ] /* ['', [Validators.required, Validators.min(1000)]], */,
+      keywords: ['', Validators.required],
+      bidAmount: ['', [Validators.required, Validators.min(1500)]],
       campaignFund: ['', Validators.required],
       status: ['', Validators.required],
-      /* ['', [Validators.required, Validators.requiredTrue]],  */
-      town: ['Cracow'],
+      town: [''],
       radius: ['', Validators.required],
     });
 
@@ -42,6 +40,13 @@ export class CampaignFormComponent implements OnInit {
         this.campaignForm.patchValue(campaign);
       }
     }
+  }
+
+  onTownChange() {
+    let selectedTown = this.campaignForm.get('town')?.value;
+    /*     if (selectedTown === 'other...') {
+      this.newTown = '';
+    } */
   }
 
   onSubmit() {
