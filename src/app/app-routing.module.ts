@@ -5,18 +5,10 @@ import { CampaignFormComponent } from './campaign-form/campaign-form.component';
 import { CampaignListComponent } from './campaign-list/campaign-list.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'list',
-    component: CampaignListComponent,
-  },
-  {
-    path: 'new',
-    component: CampaignFormComponent,
-  },
+  { path: '', component: HomeComponent },
+  { path: 'list', component: CampaignListComponent },
+  { path: 'new', component: CampaignFormComponent },
+  { path: 'edit/:id', component: CampaignFormComponent },
 ];
 
 @NgModule({

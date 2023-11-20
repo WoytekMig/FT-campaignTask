@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CampaignService } from '../campaign/campaign.service';
+import { Campaign } from '../models/campaign';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-campaign-form',
@@ -9,7 +12,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CampaignFormComponent implements OnInit {
   campaignForm: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private campaignService: CampaignService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.campaignForm = this.formBuilder.group({
@@ -25,11 +33,31 @@ export class CampaignFormComponent implements OnInit {
       town: ['Cracow'],
       radius: ['', Validators.required],
     });
+
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    if (id) {
+      let campaign = this.campaignService.getCampaign(id);
+      if (campaign) {
+        this.campaignForm.patchValue(campaign);
+      }
+    }
   }
 
   onSubmit() {
     if (this.campaignForm.valid) {
-      console.log('VALID');
+      let campaign: Campaign = this.campaignForm.value;
+
+      let id = this.activatedRoute.snapshot.paramMap.get('id');
+      if (id) {
+        //Updating
+        this.campaignService.updateCampaign(id, campaign);
+      } else {
+        //Creating new
+        this.campaignService.addCampaign(campaign);
+      }
+
+      this.router.navigate(['/list']);
     }
   }
 }

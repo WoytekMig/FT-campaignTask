@@ -1,1 +1,50 @@
-<p>campaign-list works!</p>
+<h2>This Year Campaign List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campaign name</th>
+      <th>tags</th>
+      <th>Bid amount</th>
+      <th>Campaign fund</th>
+      <th>Status</th>
+      <th>Town</th>
+      <th>Rradius</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let campaign of campaigns">
+      <td>
+        {{ campaign.name }}
+      </td>
+      <td>
+        {{ campaign.tags }}
+      </td>
+      <td>
+        {{ campaign.bidAmount }}
+      </td>
+      <td>
+        {{ campaign.campaignFund }}
+      </td>
+      <td>
+        {{ campaign.status }}
+      </td>
+      <td>
+        {{ campaign.town }}
+      </td>
+      <td>
+        {{ campaign.radius }}
+      </td>
+      <td>
+        <button (click)="deleteCampaign(campaign.id)">Delete</button>
+        <button [routerLink]="['/edit', campaign.id]">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ul *ngIf="campaigns.length; else noCampaign"></ul>
+
+<ng-template #noCampaign>
+  <p>No campaign yet.</p>
+</ng-template>
