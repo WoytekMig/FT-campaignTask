@@ -13,8 +13,17 @@
     </span>
   </div>
   <div>
-    <label> Keywords </label>
-    <input type="text" formControlName="keywords" />
+    <label for="selectedKeywords"> Keywords </label>
+    <select
+      id="selectedKeywords"
+      name="selectedKeywords"
+      formControlName="selectedKeywords"
+      multiple
+    >
+      <option *ngFor="let keyword of keywords" [ngValue]="keyword">
+        {{ keyword }}
+      </option>
+    </select>
     <span
       *ngIf="
         campaignForm.get('keywords')?.invalid &&
