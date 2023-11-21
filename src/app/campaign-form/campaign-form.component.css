@@ -1,6 +1,6 @@
 form {
     max-width: 600px;
-    margin: 10px auto;
+    margin: 10px auto auto auto;
     font-size: larger;
 }
 
@@ -31,24 +31,20 @@ span {
 
 .radio-buttons {
     display: flex;
-    /*  align-items: center; */
 }
 
 .radio-buttons label {
     display: flex;
     flex-direction: column;
-    margin: 8px;
-}
-
-.radio-buttons input {
-    margin-bottom: 5px;
+    margin-inline: 8px;
+    margin-bottom: -15px;
 }
 
 .campaign-form select {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -57,11 +53,11 @@ span {
     color: #333;
 }
 
-.campaign-form input[type="text"] {
+.campaign-form input {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
