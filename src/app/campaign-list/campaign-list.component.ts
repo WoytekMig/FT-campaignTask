@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../campaign/campaign.service';
 import { Campaign } from '../models/campaign';
+import { AccountStatusService } from '../account-status.service';
 
 @Component({
   selector: 'app-campaign-list',
@@ -10,13 +11,20 @@ import { Campaign } from '../models/campaign';
 export class CampaignListComponent implements OnInit {
   campaigns: Campaign[] = [];
 
-  constructor(private campaignService: CampaignService) {}
+  constructor(
+    private campaignService: CampaignService,
+    private accountStatusService: AccountStatusService
+  ) {}
 
   ngOnInit(): void {
     this.campaigns = this.campaignService.getCampaigns();
   }
 
-  deleteCampaign(id: string) {
-    this.campaignService.deleteCampaign(id);
+  deleteCampaign(id: string, campaignFund: number) {
+    this.campaignService.deleteCampaign(id, campaignFund);
+  }
+
+  updatedAccountStatus(campaignFund: number) {
+    this.accountStatusService.updatedAccountStatus(campaignFund);
   }
 }

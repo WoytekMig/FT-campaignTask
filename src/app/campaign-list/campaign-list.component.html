@@ -38,8 +38,15 @@
           {{ campaign.radius }}
         </td>
         <td>
-          <button (click)="deleteCampaign(campaign.id)">Delete</button>
-          <button [routerLink]="['/edit', campaign.id]">Edit</button>
+          <button (click)="deleteCampaign(campaign.id, -campaign.campaignFund)">
+            Delete
+          </button>
+          <button
+            (click)="updatedAccountStatus(-campaign.campaignFund)"
+            [routerLink]="['/edit', campaign.id]"
+          >
+            Edit
+          </button>
         </td>
       </tr>
     </tbody>
