@@ -5,9 +5,14 @@ import { CampaignListComponent } from '../campaign-list/campaign-list.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from '../home/home.module';
+import { LastYearsCampaigns } from '../last-year-campaign/last-year-campaign.component';
 
 @NgModule({
-  declarations: [CampaignFormComponent, CampaignListComponent],
+  declarations: [
+    CampaignFormComponent,
+    CampaignListComponent,
+    LastYearsCampaigns,
+  ],
   imports: [
     CommonModule,
     FormsModule,

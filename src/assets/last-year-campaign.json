@@ -1,0 +1,32 @@
+[
+ {
+  "name": "Coca-cola",
+  "tags": "food, drink, free-time",
+  "bidAmount": 25000,
+  "campaignFund": 2000,
+  "status": true,
+  "town": "Cracow",
+  "radius": 10,
+  "id": "1700483093494"
+ },
+ {
+  "name": "Adidas",
+  "tags": "wear, sport, free-time",
+  "bidAmount": 20000,
+  "campaignFund": 3000,
+  "status": false,
+  "town": "Warsaw",
+  "radius": 15,
+  "id": "1700483322751"
+ },
+ {
+  "name": "ViaPlay",
+  "tags": "TV, free-time, sport",
+  "bidAmount": 10000,
+  "campaignFund": 1800,
+  "status": false,
+  "town": "Poznan",
+  "radius": 12,
+  "id": "1700483489942"
+ }
+]

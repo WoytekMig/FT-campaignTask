@@ -1,0 +1,29 @@
+<app-home></app-home>
+<div>
+  <h2>Last Year Campaign List</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Campaign name</th>
+        <th>Keywords</th>
+        <th>Bid amount</th>
+        <th>Campaign fund</th>
+        <th>Status</th>
+        <th>Town</th>
+        <th>Radius</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let campaign of campaigns">
+        <td>{{ campaign.name }}</td>
+        <td>{{ campaign.keywords }}</td>
+        <td>{{ campaign.bidAmount }}</td>
+        <td>{{ campaign.campaignFund }}</td>
+        <td>{{ campaign.status }}</td>
+        <td>{{ campaign.town }}</td>
+        <td>{{ campaign.radius }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

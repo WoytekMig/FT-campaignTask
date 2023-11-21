@@ -6,5 +6,7 @@
   </div>
   <button [routerLink]="['/new']">Create new Campaign</button>
   <button [routerLink]="['/list']">View current Campaigns</button>
-  <!--   <button [routerLink]="['/list-past']">View last year's Campaigns</button> -->
+  <button (click)="navigateToLastYearsCampaigns()">
+    View last year's Campaigns
+  </button>
 </header>

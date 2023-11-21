@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Campaign } from '../models/campaign';
 import { BehaviorSubject } from 'rxjs';
 import { AccountStatusService } from '../account-status.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +11,21 @@ import { AccountStatusService } from '../account-status.service';
 export class CampaignService {
   private campaigns: Campaign[] = [];
 
+  private apiUrl = 'assets/last-year-campaign.json';
+
   private accountStatus = new BehaviorSubject<number>(0);
   accountStatus$ = this.accountStatus.asObservable();
 
-  constructor(private accountStatusService: AccountStatusService) {
+  constructor(
+    private accountStatusService: AccountStatusService,
+    private http: HttpClient
+  ) {
     let savedCampaigns = localStorage.getItem('campaign');
     this.campaigns = savedCampaigns ? JSON.parse(savedCampaigns) : [];
+  }
+
+  getLastYearsCampaigns(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 
   getCampaigns(): Campaign[] {
